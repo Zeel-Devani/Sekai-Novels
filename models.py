@@ -18,12 +18,22 @@ class User(Base):
     password = Column(String(100), nullable=False)
     email = Column(String(100), nullable=False)
     gender = Column(String(100))
-    birthdate = Column(DateTime, nullable=False)
+    birthdate = Column(DateTime)
     bio = Column(Text)
     isBanned = Column(Boolean,default=False)
     banUntil = Column(DateTime)
     banAdminID = Column(Integer, ForeignKey("ADMIN.adminID"))
     banReason = Column(Text)
+
+class Admin(Base):
+    __tablename__ = "ADMIN"
+    adminID = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    username = Column(String(100), nullable=False)
+    password = Column(String(100), nullable=False)
+    email = Column(String(100), nullable=False)
+    startDate = Column(DateTime)
+
+
 
 
 
